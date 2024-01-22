@@ -1,0 +1,73 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="styl2.css">
+</head>
+<body>
+    <div class="white-section">
+        <h4>LOGIN</h4>
+        <div>
+            <img src="user-icon.png" alt="" class="User-icon">
+            <input type="text" name="user_name" placeholder="user name">
+        </div>
+        <br>
+        <div>
+            <img src="password-icon.png" alt="" class="password-icon">
+            <input type="password" name="password" placeholder="password">
+        </div>
+        <p class="login-link"><button onclick="return validateform()" class="login-button">Login</button></p>
+        <p class="register-link">Don't have an account? <button onclick="register()" class="register-button">Register</button></p>
+    </div>
+    <script>
+        function register() {
+            window.location.href = "index.html";
+        }
+        function login(){
+            window.location.href = "Community.html";
+        }
+
+        function loginUser(username,password) {
+
+            if (username && password) {
+                // Get existing users from local storage
+                const existingUsers = JSON.parse(localStorage.getItem('users')) || [];
+
+                // Find the user with the entered username
+                const user = existingUsers.find(u => u.username === username);
+
+                if (user && user.password === password) {
+                    login();
+                } 
+                else {
+                    alert('Invalid username or password. Please try again.');
+                }
+            }
+             else {
+                alert('Please fill in all fields.');
+            }
+        }
+
+        function validateform() {
+            var user_name = document.getElementsByName('user_name')[0].value;
+            var password = document.getElementsByName('password')[0].value;
+
+            if (user_name == null || user_name == "") {
+                alert("Name can't be blank.");
+                return false;
+            } else if (password.length < 6) {
+                alert("Password must be at least 6 characters.");
+                return false;
+            } else {
+                loginUser(user_name,password);
+                return true;
+            }
+
+            
+        
+        }
+        
+    </script>
+</body>
+</html>
