@@ -99,7 +99,7 @@ postBtn.addEventListener("click", () => {
 // Event listener for "Invite" button
 inviteBtn.addEventListener("click", () => {
   // Construct the registration page link dynamically based on the current page URL
-  const registrationLink = "https://sreejakanaparthi.github.io/frost_hacks/ ";
+  const registrationLink = "https://gollaanusha249.github.io/Frost_Hacks/";
 
   // Create a temporary input element to copy the link
   const tempInput = document.createElement("input");
